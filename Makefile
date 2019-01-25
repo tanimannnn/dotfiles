@@ -1,9 +1,9 @@
-DOT_FILES = .zshrc .vimrc .vim .gitconfig .gitignore .zsh .ssh
+DOT_FILES = .zshrc .vimrc .vim .gitconfig .gitignore .zsh .bin
 CURRENTDIR = $(shell pwd)
 BACKUPDIR = $(HOME)/.dotfiles.bk
 
 all: backup clean install
-install: gitsubmodule zsh vim git ssh
+install: gitsubmodule backup zsh vim git bin
 
 gitsubmodule:
 	git submodule update --init --recursive
@@ -17,6 +17,7 @@ zsh: $(foreach f, $(filter .zsh%, $(DOT_FILES)), link-dot-file-$(f))
 vim: $(foreach f, $(filter .vim%, $(DOT_FILES)), link-dot-file-$(f))
 git: $(foreach f, $(filter .git%, $(DOT_FILES)), link-dot-file-$(f))
 ssh: $(foreach f, $(filter .ssh%, $(DOT_FILES)), link-dot-file-$(f))
+bin: $(foreach f, $(filter .bin%, $(DOT_FILES)), link-dot-file-$(f))
 
 add-zsh-theme:
 	@cp zsh_theme/* zsh/themes/

@@ -1,0 +1,11 @@
+Host motanilab.info 160.16.113.20
+    User motani
+    port 22
+    ForwardAgent yes
+    IdentityFile ~/.ssh/sakura_id_rsa
+
+Host github.com
+    User motani
+    port 22
+    ForwardAgent yes
+    IdentityFile ~/.ssh/id_rsa_git
